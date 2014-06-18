@@ -1,0 +1,55 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Crash Signature Frequency By BuildID</title>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+    }
+    table.data {
+      border: 1px solid #AAA;
+      cell-spacing: 0;
+      cell-padding: 2px;
+      border-collapse: collapse;
+    }
+    table.data tr,
+    table.data th {
+      border: 1px solid #AAA;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #AAA;
+    }
+    </style>
+
+<body>
+  <h1>Crash Signature Frequency By BuildID</h1>
+
+  <form id="setup" action="#">
+    <select name="channel" id="setupChannel">
+      <option value="nightly">nightly
+      <option value="aurora">aurora
+    </select>
+
+    <label for="setupSignature">Signature: </label><input type="text" name="signature" id="setupSignature" size="30">
+    <br>
+    <label for="setupStartDate">Start Date: </label><input type="text" name="startDate" id="setupStartDate" value="" size="10">
+    <label for="setupEndDate">End Date: </label><input type="text" name="endDate" id="setupEndDate" value="" size="10">
+    <br>
+    <input type="submit" value="Go">
+  </form>
+
+  <svg id="mainGraph"></svg>
+
+  <table id="mainData" class="data">
+    <thead>
+      <tr>
+        <th>BuildID
+        <td>ADU
+        <td>Crashes
+    <tbody>
+  </table>
+
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="adubysignature.js"></script>
